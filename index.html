@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Connect - QR Access</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f3f6fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .qr-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 350px;
+  }
+  h1 { color: #0f62fe; margin-bottom: 8px; }
+  p { color: #444; font-size: 14px; }
+  img {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    border: 3px solid #e7ebf3;
+  }
+  a {
+    text-decoration: none;
+    color: #0f62fe;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="qr-card">
+    <h1>Campus Connect</h1>
+    <p>Scan this QR code or click below to open the<br><strong>Student Feedback & Grievance Portal</strong></p>
+    <img id="qrImage" src="" alt="QR Code to Portal">
+    <p><a href="portal.html" id="portalLink">👉 Open Feedback Portal</a></p>
+  </div>
+
+  <script>
+    const portalUrl = window.location.origin + window.location.pathname.replace("index.html", "") + "portal.html";
+    const qrSrc = "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=" + encodeURIComponent(portalUrl);
+    document.getElementById("qrImage").src = qrSrc;
+    document.getElementById("portalLink").href = portalUrl;
+  </script>
+</body>
+</html>
